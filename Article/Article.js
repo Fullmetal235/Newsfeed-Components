@@ -120,7 +120,7 @@ const articles = document.querySelector('.articles')
 
 Data.forEach(data => {
   console.log('creating panel:', data.title)
-  articles.appendChild(createPanel(data.title, data.date))
+  articles.appendChild(createPanel(data.title, data.date, data.firstParagraph, data.secondParagraph, data.thirdParagraph))
 })
 
 
@@ -133,7 +133,7 @@ function createPanel(title, date, firstParagraph,secondParagraph,thirdParagraph,
   const buttonOpen = document.createElement('button');
   const buttonClose = document.createElement('button');
   const panelContent = document.createElement('div');
-
+  const panelParagraph = document.createElement('p')
 
  // Setup structure of elements
   panel.appendChild(panelBar)
@@ -171,3 +171,23 @@ function createPanel(title, date, firstParagraph,secondParagraph,thirdParagraph,
   
   return panel
 }
+
+function createPanel2(title, content) {
+  const panel = document.createElement('div')
+  panel.innerHTML = `<div class="panel">
+  <div class="panel-bar">
+    <h3>${title}</h3>
+    <div class="panel-buttons">
+      <button class="panel-btn-open">Open</button>
+      <button class="panel-btn-close hide-btn">Close</button>
+    </div>
+  </div>
+  <div class="panel-content">
+   <p> ${firstParagraph}, ${secondParagraph}, ${thirdParagraph}</p>
+    
+  </div>
+</div>`
+  return panel
+}
+
+console.log(document)
