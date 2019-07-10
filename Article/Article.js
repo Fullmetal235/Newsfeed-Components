@@ -152,9 +152,9 @@ function createPanel(title, date, firstParagraph,secondParagraph,thirdParagraph,
   panelContent.classList.add('panel-content')
   
   // set text content
-  buttonOpen.textContent = 'Open'
+  buttonOpen.textContent = 'read'
   buttonClose.textContent = 'Close'
-  panelContent.textContent = content
+  panelContent.textContent = firstParagraph, secondParagraph, thirdParagraph
   panelTitle.textContent = title
   
   // button events
