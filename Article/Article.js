@@ -120,5 +120,5 @@ const articles = document.querySelector('.articles')
 
 Data.forEach(data => {
   console.log('creating panel:', data.title)
-  accordion.appendChild(createPanel(data.title, data.content))
+  articles.appendChild(createPanel(data.title, data.content))
 })
