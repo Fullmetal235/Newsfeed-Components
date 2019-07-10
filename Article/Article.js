@@ -120,5 +120,54 @@ const articles = document.querySelector('.articles')
 
 Data.forEach(data => {
   console.log('creating panel:', data.title)
-  articles.appendChild(createPanel(data.title, data.content))
+  articles.appendChild(createPanel(data.title, data.date))
 })
+
+
+function createPanel(title, date, firstParagraph,secondParagraph,thirdParagraph,) {
+  // define new elements
+  const panel = document.createElement('div');
+  const panelBar = document.createElement('div');
+  const panelTitle = document.createElement('h3');
+  const buttonPanel = document.createElement('div');
+  const buttonOpen = document.createElement('button');
+  const buttonClose = document.createElement('button');
+  const panelContent = document.createElement('div');
+
+
+ // Setup structure of elements
+  panel.appendChild(panelBar)
+  panel.appendChild(panelContent)
+  panelBar.appendChild(panelTitle)
+  panelBar.appendChild(buttonPanel)
+  buttonPanel.appendChild(buttonOpen)
+  buttonPanel.appendChild(buttonClose)
+  
+  // set class names
+  panel.classList.add('panel')
+  panelBar.classList.add('panel-bar')
+  buttonPanel.classList.add('panel-buttons')
+  buttonOpen.classList.add('panel-btn-open')
+  buttonClose.classList.add('panel-btn-close', 'hide-btn')
+  panelContent.classList.add('panel-content')
+  
+  // set text content
+  buttonOpen.textContent = 'Open'
+  buttonClose.textContent = 'Close'
+  panelContent.textContent = content
+  panelTitle.textContent = title
+  
+  // button events
+  // ❌ buttonPanel.querySelectorAll('button').forEach(btn => btn.addEventListener('click', clickHandler))
+  // ✅ buttonPanel.addEventListener('click', clickHandler)
+  buttonPanel.addEventListener('click', event => {
+    console.log('button clicked', event.target)
+    // 1. toggle hide-btn on BOTH buttons
+    buttonOpen.classList.toggle('hide-btn')
+    buttonClose.classList.toggle('hide-btn')
+    // 2. Change visibility of the content w/ 'toggle-on'
+    panelContent.classList.toggle('toggle-on')
+  })
+  
+  return panel
+}
