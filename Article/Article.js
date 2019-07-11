@@ -1,6 +1,6 @@
 /* This is the data we will be using to create our article components */
 /* Look over this data, then proceed to line 91*/
-const data = [
+const Newsdata = [
   {
     title: 'Lambda School Students: "We\'re the best!"',
     date: 'Nov 5th, 2018',
@@ -118,7 +118,7 @@ const articles = document.querySelector('.articles')
 
 // accordion.appendChild(createPanel('hi rosie', 'best cat award'))
 
-Data.forEach(data => {
+Newsdata.forEach(data => {
   console.log('creating panel:', data.title)
   articles.appendChild(createPanel(data.title, data.date, data.firstParagraph, data.secondParagraph, data.thirdParagraph))
 })
@@ -152,8 +152,8 @@ function createPanel(title, date, firstParagraph,secondParagraph,thirdParagraph,
   panelContent.classList.add('panel-content')
   
   // set text content
-  buttonOpen.textContent = 'read'
-  buttonClose.textContent = 'Close'
+  buttonOpen.textContent = 'expand'
+  buttonClose.textContent = 'expand'
   panelContent.textContent = firstParagraph, secondParagraph, thirdParagraph
   panelTitle.textContent = title
   
